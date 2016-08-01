@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QTimer>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -8,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->buttonReset,SIGNAL(clicked()),this,SLOT(resetButtonPressed()));
     connect(ui->buttonRun,SIGNAL(clicked()),this,SLOT(runButtonPressed()));
-    runButtonPressed();
+    QTimer::singleShot(2000, this, SLOT(runButtonPressed()));
 }
 
 MainWindow::~MainWindow()
