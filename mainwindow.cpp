@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->buttonReset,SIGNAL(clicked()),this,SLOT(resetButtonPressed()));
     connect(ui->buttonRun,SIGNAL(clicked()),this,SLOT(runButtonPressed()));
+    runButtonPressed();
 }
 
 MainWindow::~MainWindow()
