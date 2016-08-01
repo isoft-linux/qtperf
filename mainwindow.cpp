@@ -36,6 +36,7 @@ void MainWindow::runButtonPressed() {
         ui->textConsole->append(QString("Total: %1 s").arg(all));
     }
     ui->tabMain->setCurrentIndex(0);
+    QApplication::quit();
 }
 
 float MainWindow::runTest(int testnum) {
