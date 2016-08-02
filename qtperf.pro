@@ -8,7 +8,10 @@ greaterThan(QT_VER_MAJ, 4) {
     QT += widgets
 }
 
-TARGET = qtperf
+TARGET = qtperf4
+greaterThan(QT_VER_MAJ, 4) {
+    TARGET = qtperf
+}
 
 
 SOURCES += main.cpp\
