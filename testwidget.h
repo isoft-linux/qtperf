@@ -1,7 +1,12 @@
 #ifndef TESTWIDGET_H
 #define TESTWIDGET_H
 
+#include <QtGlobal>
+#if QT_VERSION >= 0x050000
+#include <QtWidgets/QWidget>
+#else
 #include <QWidget>
+#endif
 #include <QPainter>
 #include <stdio.h>
 
@@ -18,7 +23,7 @@ public:
     TestType type;
     explicit TestWidget(QWidget *parent = 0);
     void setType(TestType newtype);
-    ~TestWidget();
+    virtual ~TestWidget();
 protected:
     void paintEvent(QPaintEvent *);
 

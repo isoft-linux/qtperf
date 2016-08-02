@@ -1,9 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QtGlobal>
+#if QT_VERSION >= 0x050000
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QScrollBar>
+#else
 #include <QMainWindow>
-#include <QTime>
 #include <QScrollBar>
+#endif
+#include <QTime>
 #include <stdio.h>
 
 namespace Ui {

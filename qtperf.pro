@@ -1,13 +1,14 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2011-08-17T11:33:31
-#
-#-------------------------------------------------
+QT_VERSION = $$[QT_VERSION]
+QT_VERSION = $$split(QT_VERSION, ".")
+QT_VER_MAJ = $$member(QT_VERSION, 0)
+QT_VER_MIN = $$member(QT_VERSION, 1)
 
 QT       += core gui
+greaterThan(QT_VER_MAJ, 4) {
+    QT += widgets
+}
 
-TARGET = qtperf4
-TEMPLATE = app
+TARGET = qtperf
 
 
 SOURCES += main.cpp\
