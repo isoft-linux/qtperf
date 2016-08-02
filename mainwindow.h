@@ -18,9 +18,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+signals:
+    void completed();
+
 public slots:
     void runButtonPressed();
     void resetButtonPressed();
+
+protected:
+    void showEvent(QShowEvent *e);
 
 private:
     Ui::MainWindow *ui;

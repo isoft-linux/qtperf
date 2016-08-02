@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->buttonReset,SIGNAL(clicked()),this,SLOT(resetButtonPressed()));
     connect(ui->buttonRun,SIGNAL(clicked()),this,SLOT(runButtonPressed()));
-    QTimer::singleShot(2000, this, SLOT(runButtonPressed()));
+    connect(this, SIGNAL(completed()), this, SLOT(runButtonPressed()), Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
 }
 
 MainWindow::~MainWindow()
@@ -298,4 +298,10 @@ float MainWindow::test_qpainter_image(int count) {
     }
     ui->testDrawWidget->type = TestWidget::TEST_IDLE;
     return (float)start.msecsTo(QTime::currentTime())/1000.0f;
+}
+
+void MainWindow::showEvent(QShowEvent *e)
+{
+    QMainWindow::showEvent(e);
+    emit completed();
 }
