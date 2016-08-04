@@ -11,3 +11,5 @@ Qtperf can be used to test performance of:
 * QtGui library itself (to compare perfomance of different Qt versions);
 * Xorg and it's video driver.
 
+./qtperf -graphicssystem raster
+./qtperf4 -graphicssystem raster
