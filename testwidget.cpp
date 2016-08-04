@@ -1,6 +1,8 @@
 #include "testwidget.h"
 #include "ui_testwidget.h"
 
+#include <ctime>
+
 TestWidget::TestWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TestWidget)
@@ -28,6 +30,7 @@ void TestWidget::paintEvent(QPaintEvent *) {
     painter.setBrush(QBrush(color));
     painter.setFont(QFont("Arial",16,QFont::Bold));
 
+    qsrand(std::time(0));
     switch (type) {
     case TEST_LINES:
 	painter.drawLine(qrand() % w, qrand() % h, qrand() % w, qrand() % h);
@@ -50,6 +53,7 @@ void TestWidget::paintEvent(QPaintEvent *) {
 
 QColor TestWidget::randomColor()
 {
+    qsrand(std::time(0));
     return QColor(qrand() % 255, qrand() % 255, qrand() % 255);
 }
 
